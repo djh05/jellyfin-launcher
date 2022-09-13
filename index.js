@@ -5,6 +5,7 @@ const axios = require("axios").default;
 
 const config = {
   jellyfinUrl: process.env.JELLYFIN_URL,
+  jellyfinFriendlyUrl: process.env.JELLYFIN_FRIENDLY_URL || process.env.JELLYFIN_URL,
   hassUrl: process.env.HASS_URL,
   hassToken: process.env.HASS_TOKEN,
   hassScript: process.env.HASS_SCRIPT
@@ -57,7 +58,7 @@ const app = express();
 
 app.get("/", (req, res, next) => {
   if (jellyfin.up) {
-    return res.redirect(config.jellyfinUrl);
+    return res.redirect(config.jellyfinFriendlyUrl);
 
   } else {
     startJellyfin();
