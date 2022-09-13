@@ -22,7 +22,7 @@ async function startJellyfin() {
   console.log("Starting jellyfin...");
 
   await axios.post(
-    config.hassUrl + "/api/services/script/" + config.hassScriptOn,
+    config.hassUrl + "/api/services/script/" + config.hassScript,
     {},
     {
       headers: {
